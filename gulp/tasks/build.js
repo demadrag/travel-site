@@ -16,7 +16,7 @@ gulp.task('previewDist', function() {
   });
 });
 
-gulp.task('deleteDistFolder', function() {
+gulp.task('deleteDistFolder', ['icons'], function() {
   return del("./docs");
 });
 
@@ -27,8 +27,8 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
     '!./app/assets/images/**',
     '!./app/assets/styles/**',
     '!./app/assets/scripts/**',
-    '!./app/temp/',
-    '!./app/temp/**',
+    '!./app/temp',
+    '!./app/temp/**'
   ]
 
   return gulp.src(pathsToCopy)
